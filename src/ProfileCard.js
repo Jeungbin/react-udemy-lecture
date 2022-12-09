@@ -1,11 +1,22 @@
-function ProfileCard(props) {
+function ProfileCard({ title, handle, image }) {
   // instead of props.title
   // const title = props.title;
   // const handle = props.handle;
-  const { title, handle } = props;
+  // const { title, handle } = props;
   return (
-    <div>
-      title is{title} and handle is {handle}
+    <div className="card">
+      <div className="card-image">
+        <figure className="image is-1by">
+          <img src={image} alt="pdalogo" />
+        </figure>
+      </div>
+
+      <div className="card-content">
+        <div className="media-content">
+          <p className="title is-4"> title is{title}</p>
+          <p className="subtitle is-6"> handle is {handle}</p>
+        </div>
+      </div>
     </div>
   );
 }
