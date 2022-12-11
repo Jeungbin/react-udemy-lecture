@@ -1,13 +1,15 @@
 import React from "react";
 
 function SearchBar({ onSubmit }) {
-  const handleClick = () => {
-    onSubmit("cars");
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    onSubmit(document.getElementById("searchTxt").value);
   };
   return (
     <>
-      <input type="text" />
-      <button onClick={handleClick}>search</button>
+      <form id="searchTxt" action="submit" onSubmit={handleFormSubmit}>
+        <input type="text" />
+      </form>
     </>
   );
 }

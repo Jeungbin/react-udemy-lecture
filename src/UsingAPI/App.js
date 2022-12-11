@@ -4,6 +4,7 @@ import ImageList from "./components/ImageList";
 import searchImages from "./api";
 export default function App() {
   function handleSubmit(term) {
+    searchImages(term);
     console.log(term);
   }
 
