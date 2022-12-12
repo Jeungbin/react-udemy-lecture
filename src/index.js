@@ -1,7 +1,8 @@
 // 1) Import the React and ReactDOM libraries
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./UsingAPI/App";
+import App from "./handleForms/App";
+import "./index.css";
 
 // 2) Get a reference to the dic with ID root
 const el = document.getElementById("root");
