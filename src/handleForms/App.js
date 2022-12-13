@@ -16,9 +16,16 @@ function App() {
     setBooks(updatedBooks);
   };
 
+  const deleteBookId = (id) => {
+    const deletedbook = books.filter((book) => {
+      return book.id !== id;
+    });
+    setBooks(deletedbook);
+  };
+
   return (
     <div className="app">
-      <BookList books={books} />
+      <BookList books={books} onDelete={deleteBookId} />
       <BookCreate onCreate={createBook} />
     </div>
   );
