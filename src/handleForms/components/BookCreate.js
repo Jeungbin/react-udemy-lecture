@@ -1,21 +1,22 @@
 import React, { useState } from "react";
 
-function BookCreate({ onSubmit }) {
-  const [name, setName] = useState("");
+function BookCreate({ onCreate }) {
+  const [title, setTitle] = useState("");
 
   const handleChange = (e) => {
     e.preventDefault();
-    setName(e.target.value);
+    setTitle(e.target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit(name);
+    onCreate(title);
+    setTitle(" ");
   };
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <input value={name} onChange={handleChange} type="text" />
+        <input value={title} onChange={handleChange} type="text" />
         <button>submit</button>
       </form>
     </div>
