@@ -23,9 +23,19 @@ function App() {
     setBooks(deletedbook);
   };
 
+  const saveBookId = (id, newItem) => {
+    const savedBook = books.map((book) => {
+      if (book.id === id) {
+        return { ...book, title: newItem };
+      }
+      return book;
+    });
+    setBooks(savedBook);
+  };
+
   return (
     <div className="app">
-      <BookList books={books} onDelete={deleteBookId} />
+      <BookList books={books} onDelete={deleteBookId} onModify={saveBookId} />
       <BookCreate onCreate={createBook} />
     </div>
   );
