@@ -10,8 +10,9 @@ function BookShow({ book, onDelete, onModify }) {
     setOpen(!open);
   };
 
-  const changeOpen = () => {
-    setOpen(!open);
+  const changeOpen = (id, newTitle) => {
+    setOpen(false);
+    onModify(id, newTitle);
   };
 
   return (
@@ -21,11 +22,7 @@ function BookShow({ book, onDelete, onModify }) {
         <button onClick={handleClick}>Delete</button>
       </div>
       <div className="mainSection">
-        {open ? (
-          <BookEdit book={book} onModify={onModify} onChange={changeOpen} />
-        ) : (
-          book.title
-        )}
+        {open ? <BookEdit book={book} onChange={changeOpen} /> : book.title}
       </div>
     </div>
   );
