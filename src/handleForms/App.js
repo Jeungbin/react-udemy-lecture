@@ -1,9 +1,19 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import BookCreate from "./components/BookCreate";
 import BookList from "./components/BookList";
 function App() {
   const [books, setBooks] = useState([]);
+
+  const fetchBooks = async () => {
+    const response = await axios.get("http://localhost:3001/books");
+    setBooks(response.data);
+  };
+
+  useEffect(() => {
+    fetchBooks();
+  }, []);
+
   const createBook = async (title) => {
     //BAD CODE
     // books.push({id:123, title:title})
@@ -26,10 +36,13 @@ function App() {
     setBooks(deletedbook);
   };
 
-  const saveBookId = (id, newItem) => {
+  const saveBookId = async (id, newItem) => {
+    const response = await axios.put("http://localhost:3001/books/" + id, {
+      title: newItem,
+    });
     const savedBook = books.map((book) => {
       if (book.id === id) {
-        return { ...book, title: newItem };
+        return { ...book, ...response.data };
       }
       return book;
     });
