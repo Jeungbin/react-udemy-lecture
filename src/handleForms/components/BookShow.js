@@ -17,7 +17,7 @@ function BookShow({ book, onDelete, onModify }) {
 
   return (
     <div className="book-show">
-      <img src={`https://picsum.photos/seed/${book.id}/200/300`} alt="" />
+      <img src={`https://picsum.photos/seed/${book.id}/200/200`} alt="" />
       <div style={{ display: "flex" }}>
         <button onClick={toggleUpdateForm}>update</button>
         <button onClick={handleClick}>Delete</button>
