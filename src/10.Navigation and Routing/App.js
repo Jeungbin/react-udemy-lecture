@@ -9,10 +9,10 @@ export default function App() {
         </Button>
       </div>
       <div>
-        <Button></Button>
+        <Button primary>Buy now!</Button>
       </div>
       <div>
-        <Button></Button>
+        <Button secondary>Hide Ads</Button>
       </div>
     </div>
   );
