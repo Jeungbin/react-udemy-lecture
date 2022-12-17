@@ -1,4 +1,4 @@
-import "./index.css";
+import "../src/10.Navigation and Routing/index.css";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./10.Navigation and Routing/App";

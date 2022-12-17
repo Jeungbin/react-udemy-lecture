@@ -4,7 +4,9 @@ export default function App() {
   return (
     <div>
       <div>
-        <Button>click me!</Button>
+        <Button success primary>
+          click me!
+        </Button>
       </div>
       <div>
         <Button></Button>
