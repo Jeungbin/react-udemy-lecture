@@ -8,13 +8,13 @@ export default function App() {
   return (
     <div>
       <div>
-        <Button outline success primary onClick={handleClick}>
+        <Button outline success primary className="mb-5" onClick={handleClick}>
           <GoBell className="mr-1" />
           click me!
         </Button>
       </div>
       <div>
-        <Button rounded secondary primary>
+        <Button onMouseEnter={handleClick} rounded secondary primary>
           Buy now!
         </Button>
       </div>
