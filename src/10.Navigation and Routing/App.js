@@ -4,15 +4,19 @@ export default function App() {
   return (
     <div>
       <div>
-        <Button success primary>
+        <Button outline success primary>
           click me!
         </Button>
       </div>
       <div>
-        <Button primary>Buy now!</Button>
+        <Button rounded secondary primary>
+          Buy now!
+        </Button>
       </div>
       <div>
-        <Button secondary>Hide Ads</Button>
+        <Button warning secondary>
+          Hide Ads
+        </Button>
       </div>
     </div>
   );
