@@ -1,20 +1,30 @@
 import React, { useState } from "react";
-
+import { GoChevronDown, GoChevronLeft } from "react-icons/go";
 export default function Accordion({ items }) {
-  const [expandedIndex, setEpandedIndex] = useState(0);
+  const [expandedIndex, setEpandedIndex] = useState(-1);
 
   const handleClick = (nextIndex) => {
-    setEpandedIndex(nextIndex);
+    if (nextIndex === expandedIndex) {
+      setEpandedIndex(-1);
+    } else setEpandedIndex(nextIndex);
   };
 
   const renderedItmes = items.map((item, index) => {
     const isExpanded = index === expandedIndex;
+    const icon = (
+      <span>{isExpanded ? <GoChevronDown /> : <GoChevronLeft />}</span>
+    );
 
-    const content = isExpanded && <div>{item.content}</div>;
     return (
       <div key={item.id}>
-        <div onClick={() => handleClick(index)}>{item.label}</div>
-        <div>{content}</div>
+        <div
+          className="flex justify-between p-3 border-b bg-gray-50 items-center cursor-pointer"
+          onClick={() => handleClick(index)}
+        >
+          {item.label}
+          {icon}
+        </div>
+        {isExpanded && <div className="border-b">{item.content}</div>}
       </div>
     );
   });
