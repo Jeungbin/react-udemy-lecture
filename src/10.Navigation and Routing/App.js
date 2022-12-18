@@ -1,28 +1,27 @@
-import React from "react";
-import Button from "./Button";
-import { GoBell } from "react-icons/go";
+import { useState } from "react";
+import Accordion from "./components/Accordion";
+
 export default function App() {
-  const handleClick = () => {
-    console.log("click");
-  };
-  return (
-    <div>
-      <div>
-        <Button outline success primary className="mb-5" onClick={handleClick}>
-          <GoBell className="mr-1" />
-          click me!
-        </Button>
-      </div>
-      <div>
-        <Button onMouseEnter={handleClick} rounded secondary primary>
-          Buy now!
-        </Button>
-      </div>
-      <div>
-        <Button warning secondary>
-          Hide Ads
-        </Button>
-      </div>
-    </div>
-  );
+  const items = [
+    {
+      id: 1,
+      label: "Can i use React on a project?",
+      content:
+        "Yes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of course",
+    },
+    {
+      id: 2,
+      label: "Can i use Java on a project?",
+      content:
+        "Yes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of course",
+    },
+    {
+      id: 3,
+      label: "Can i use CSS on a project?",
+      content:
+        "Yes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of course",
+    },
+  ];
+
+  return <Accordion items={items} />;
 }
