@@ -1,27 +1,23 @@
 import { useState } from "react";
-import Accordion from "./components/Accordion";
+import DropDown from "./components/DropDown";
 
 export default function App() {
-  const items = [
-    {
-      id: 1,
-      label: "Can i use React on a project?",
-      content:
-        "Yes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of course",
-    },
-    {
-      id: 2,
-      label: "Can i use Java on a project?",
-      content:
-        "Yes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of course",
-    },
-    {
-      id: 3,
-      label: "Can i use CSS on a project?",
-      content:
-        "Yes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of course",
-    },
-  ];
+  const [selected, setSelected] = useState(null);
 
-  return <Accordion items={items} />;
+  const handleSelect = (option) => {
+    setSelected(option);
+  };
+  console.log(selected);
+  const options = [
+    { label: "Red", value: "red" },
+    { label: "Green", value: "green" },
+    { label: "Blue", value: "blue" },
+  ];
+  return (
+    <DropDown
+      selected={selected}
+      onSelect={handleSelect}
+      options={options}
+    ></DropDown>
+  );
 }
