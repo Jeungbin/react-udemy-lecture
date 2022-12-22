@@ -15,7 +15,7 @@ export default function App() {
   ];
   return (
     <DropDown
-      value={value}
+      value={selected}
       onChange={handleSelect}
       options={options}
     ></DropDown>
