@@ -1,9 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Panle from "./Panle";
 import { GoChevronDown } from "react-icons/go";
 
 export default function DropDown({ value, onChange, options }) {
   const [isOpen, setIsOpen] = useState(false);
+  const divEl = useRef();
+  // divel = eiv element
+
+  useEffect(() => {
+    const handler = (e) => {
+      if (!divEl.current.contains(e.target)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener("click", handler, true);
+
+    return () => {
+      // clean up call function
+      document.removeEventListener("click", handler);
+    };
+  }, []);
 
   const hadleClick = () => {
     // setIsOpen(!isOpen);
@@ -29,7 +45,7 @@ export default function DropDown({ value, onChange, options }) {
   });
 
   return (
-    <div className="w-48 relative">
+    <div ref={divEl} className="w-48 relative">
       <Panle
         className="flex justifiy-between items-center cursor-pointer"
         onClick={hadleClick}
