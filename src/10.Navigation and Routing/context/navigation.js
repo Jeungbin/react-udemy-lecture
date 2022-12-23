@@ -5,6 +5,8 @@ const NavigationContect = createContext();
 function NavigationProvider({ Children }) {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
 
+  // this is only for User clicks forward or back
+  // make do not refresh all the variables
   useEffect(() => {
     const handler = () => {
       setCurrentPath(window.location.pathname);
@@ -16,9 +18,14 @@ function NavigationProvider({ Children }) {
     };
   }, []);
 
+  const navigate = (to) => {
+    // to === '/dropdown'
+    window.history.pushState({}, "", to);
+    setCurrentPath(to);
+  };
+
   return (
-    <NavigationContect.Provider value={{}}>
-      {currentPath}
+    <NavigationContect.Provider value={{ currentPath, navigate }}>
       {Children}
     </NavigationContect.Provider>
   );
