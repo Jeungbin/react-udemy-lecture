@@ -1,8 +1,5 @@
 import className from "classnames";
 
-// const finalClassName = className({ "bg-blue-500": true  });
-// console.log(finalClassName);
-
 function Button({
   children,
   primary,
@@ -16,12 +13,12 @@ function Button({
 }) {
   const classes = className(
     rest.className,
-    "px-3 py-1 border flex items-center",
+    "flex items-center px-3 py-1.5 border",
     {
       "border-blue-500 bg-blue-500 text-white": primary,
       "border-gray-900 bg-gray-900 text-white": secondary,
       "border-green-500 bg-green-500 text-white": success,
-      "border-yellow-500 bg-yellow-500 text-white": warning,
+      "border-yellow-400 bg-yellow-400 text-white": warning,
       "border-red-500 bg-red-500 text-white": danger,
       "rounded-full": rounded,
       "bg-white": outline,
@@ -38,7 +35,6 @@ function Button({
       {children}
     </button>
   );
-  //underlying elements <button>
 }
 
 Button.propTypes = {
@@ -46,8 +42,8 @@ Button.propTypes = {
     const count =
       Number(!!primary) +
       Number(!!secondary) +
-      Number(!!success) +
       Number(!!warning) +
+      Number(!!success) +
       Number(!!danger);
 
     if (count > 1) {
@@ -59,5 +55,3 @@ Button.propTypes = {
 };
 
 export default Button;
-
-//<Button promary={true}></Button> === <Button promary></Button>

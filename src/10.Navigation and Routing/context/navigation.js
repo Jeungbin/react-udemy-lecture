@@ -1,12 +1,10 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
-const NavigationContect = createContext();
+const NavigationContext = createContext();
 
-function NavigationProvider({ Children }) {
+function NavigationProvider({ children }) {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
 
-  // this is only for User clicks forward or back
-  // make do not refresh all the variables
   useEffect(() => {
     const handler = () => {
       setCurrentPath(window.location.pathname);
@@ -19,17 +17,16 @@ function NavigationProvider({ Children }) {
   }, []);
 
   const navigate = (to) => {
-    // to === '/dropdown'
     window.history.pushState({}, "", to);
     setCurrentPath(to);
   };
 
   return (
-    <NavigationContect.Provider value={{ currentPath, navigate }}>
-      {Children}
-    </NavigationContect.Provider>
+    <NavigationContext.Provider value={{ currentPath, navigate }}>
+      {children}
+    </NavigationContext.Provider>
   );
 }
 
 export { NavigationProvider };
-export default NavigationContect;
+export default NavigationContext;

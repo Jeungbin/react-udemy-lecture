@@ -1,27 +1,28 @@
-import { useState } from "react";
 import Accordion from "../components/Accordion";
 
-export default function AccordionPage() {
+function AccordionPage() {
   const items = [
     {
-      id: 1,
-      label: "Can i use React on a project?",
+      id: "l2kj5",
+      label: "Can I use React on a project?",
       content:
-        "Yes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of course",
+        "You can use React on any project you want. You can use React on any project you want. You can use React on any project you want. You can use React on any project you want.",
     },
     {
-      id: 2,
-      label: "Can i use Java on a project?",
+      id: "lk2j35lkj",
+      label: "Can I use Javascript on a project?",
       content:
-        "Yes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of course",
+        "You can use React on any project you want. You can use React on any project you want. You can use React on any project you want. You can use React on any project you want.",
     },
     {
-      id: 3,
-      label: "Can i use CSS on a project?",
+      id: "l1kj2i0g",
+      label: "Can I use CSS on a project?",
       content:
-        "Yes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of courseYes . of course",
+        "You can use React on any project you want. You can use React on any project you want. You can use React on any project you want. You can use React on any project you want.",
     },
   ];
 
   return <Accordion items={items} />;
 }
+
+export default AccordionPage;
