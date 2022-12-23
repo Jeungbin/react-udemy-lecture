@@ -9,6 +9,10 @@ export default function DropDown({ value, onChange, options }) {
 
   useEffect(() => {
     const handler = (e) => {
+      if(!divEl.current){
+        return
+      }
+
       if (!divEl.current.contains(e.target)) {
         setIsOpen(false);
       }
