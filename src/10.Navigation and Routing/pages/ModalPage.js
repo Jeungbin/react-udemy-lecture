@@ -15,7 +15,9 @@ export default function ModalPage() {
 
   const actionBar = (
     <div>
-      <Button primary>Acceapt</Button>
+      <Button onClick={handleClose} primary>
+        Acceapt
+      </Button>
     </div>
   );
 
