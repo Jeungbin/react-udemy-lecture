@@ -18,7 +18,7 @@ export default function ModalPage() {
       <Button onClick={handleClick} primary>
         OPEN MODAL
       </Button>
-      {showModal && <Modal />}
+      {showModal && <Modal onClose={handleClose} />}
       {/* <button onClick={handleClick}>Open Modal</button>
       {open ? <Modal onClick={handleClose} /> : ""} */}
     </div>
