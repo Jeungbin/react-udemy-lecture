@@ -14,7 +14,7 @@ export default function ModalPage() {
   };
 
   return (
-    <div>
+    <div className="relative">
       <Button onClick={handleClick} primary>
         OPEN MODAL
       </Button>
