@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Table({ data, config }) {
+export default function Table({ data, config, keyFn }) {
   //   const keys = Object.keys(data[0]);
   //   console.log(keys);
   //   const renderedTops = keys.map((name) => {
@@ -11,16 +11,17 @@ export default function Table({ data, config }) {
     return <th key={column.label}>{column.label}</th>;
   });
 
-  const renderdRows = data.map((fruit) => {
+  const renderdRows = data.map((rowData) => {
     const renderedCells = config.map((column) => {
       return (
         <td className="p-2" key={column.label}>
-          {column.render(fruit)}
+          {column.render(rowData)}
         </td>
       );
     });
+    keyFn;
     return (
-      <tr className="border-b" key={fruit.name}>
+      <tr className="border-b" key={keyFn}>
         {renderedCells}
       </tr>
     );
