@@ -3,19 +3,19 @@ import React from "react";
 export default function Table({ data }) {
   const renderdRows = data.map((item) => {
     return (
-      <tr key={item.name}>
-        <td>{item.name}</td>
-        <td>
-          <div className=" h-10 w-10"></div>
+      <tr className="border-b" key={item.name}>
+        <td className="p-3">{item.name}</td>
+        <td className="p-3">
+          <div className={`p-3 m-2 ${item.color}`}></div>
         </td>
-        <td>{item.score}</td>
+        <td className="p-3">{item.score}</td>
       </tr>
     );
   });
   return (
-    <table>
+    <table className="table-auto border-spacing-2">
       <thead>
-        <tr>
+        <tr className="border-b-2">
           <th>Fruits</th>
           <th>Color</th>
           <th>Score</th>
