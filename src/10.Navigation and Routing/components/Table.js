@@ -1,13 +1,10 @@
 import React from "react";
 
 export default function Table({ data, config, keyFn }) {
-  //   const keys = Object.keys(data[0]);
-  //   console.log(keys);
-  //   const renderedTops = keys.map((name) => {
-  //     return <th>{name}</th>;
-  //   });
-
   const renderdHeaders = config.map((column) => {
+    if (column.header) {
+      return column.header();
+    }
     return <th key={column.label}>{column.label}</th>;
   });
 
@@ -19,7 +16,7 @@ export default function Table({ data, config, keyFn }) {
         </td>
       );
     });
-    keyFn;
+
     return (
       <tr className="border-b" key={keyFn}>
         {renderedCells}
