@@ -1,6 +1,16 @@
 import React from "react";
 
-export default function Table({ data }) {
+export default function Table({ data, config }) {
+  //   const keys = Object.keys(data[0]);
+  //   console.log(keys);
+  //   const renderedTops = keys.map((name) => {
+  //     return <th>{name}</th>;
+  //   });
+
+  const renderdHeaders = config.map((column) => {
+    return <th key={column.label}>{column.label}</th>;
+  });
+
   const renderdRows = data.map((item) => {
     return (
       <tr className="border-b" key={item.name}>
@@ -15,11 +25,7 @@ export default function Table({ data }) {
   return (
     <table className="table-auto border-spacing-2">
       <thead>
-        <tr className="border-b-2">
-          <th>Fruits</th>
-          <th>Color</th>
-          <th>Score</th>
-        </tr>
+        <tr className="border-b-2">{renderdHeaders}</tr>
       </thead>
       <tbody>{renderdRows}</tbody>
     </table>
