@@ -11,14 +11,12 @@ export default function Table({ data, config }) {
     return <th key={column.label}>{column.label}</th>;
   });
 
-  const renderdRows = data.map((item) => {
+  const renderdRows = data.map((fruit) => {
     return (
-      <tr className="border-b" key={item.name}>
-        <td className="p-3">{item.name}</td>
-        <td className="p-3">
-          <div className={`p-3 m-2 ${item.color}`}></div>
-        </td>
-        <td className="p-3">{item.score}</td>
+      <tr className="border-b" key={fruit.name}>
+        <td className="p-3">{config[0].render(fruit)}</td>
+        <td className="p-3">{config[1].render(fruit)}</td>
+        <td className="p-3">{config[2].render(fruit)}</td>
       </tr>
     );
   });
