@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import Table from "./Table";
+import { GoArrowSmallDown, GoArrowSmallUp } from "react-icons/go";
 
 export default function SortableTable(props) {
   const [sortOrder, setSortOrder] = useState(null);
@@ -29,9 +30,14 @@ export default function SortableTable(props) {
     return {
       ...column,
       header: () => (
-        <th onClick={() => handleClick(column.label)}>
-          {getIcons(column.label, sortBy, sortOrder)}
-          {column.label}
+        <th
+          className="cursor-pointer hover:bg-gray-100"
+          onClick={() => handleClick(column.label)}
+        >
+          <div className="flex items-center">
+            {getIcons(column.label, sortBy, sortOrder)}
+            {column.label}
+          </div>
         </th>
       ),
     };
@@ -68,14 +74,32 @@ export default function SortableTable(props) {
 
 function getIcons(label, sortBy, sortOrder) {
   if (label !== sortBy) {
-    return "show both icons";
+    return (
+      <div>
+        <GoArrowSmallUp />
+        <GoArrowSmallDown />
+      </div>
+    );
   }
 
   if (sortOrder === null) {
-    return "show both icons";
+    return (
+      <div>
+        <GoArrowSmallUp />
+        <GoArrowSmallDown />
+      </div>
+    );
   } else if (sortOrder === "asc") {
-    return "show up icon";
+    return (
+      <div>
+        <GoArrowSmallUp />
+      </div>
+    );
   } else if (sortOrder === "desc") {
-    return "show down";
+    return (
+      <div>
+        <GoArrowSmallDown />
+      </div>
+    );
   }
 }
